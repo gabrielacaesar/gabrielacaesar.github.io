@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@500&family=Outfit:wght@300;600;800&family=Public+Sans:wght@300;600;900&display=swap');
+
+* {
+	margin: 0;
+	font-family: 'Outfit', sans-serif;
+	box-sizing: border-box;
+	background-color: #283C6C;
+	color: #D9D9D9;
+}
+
+/* tags */
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+p {
+    font-size: 17px;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* general classes */
+.flex {
+    display: flex;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+/* nav */
+.nav {
+    justify-content: space-between;
+    padding: 0 20%;
+    max-height: 10vh;
+    padding-top: 2%;
+    border-radius: 1%;
+}
+
+.nav > li {
+    align-self: center;
+    text-align: center;
+    width: 20%;
+    padding: 2%;
+    font-size: 30px;
+}
+
+.nav > li:hover {
+    border: 1px solid #D9D9D9;
+    border-radius: 1%;
+}
+
+.nav-ativo, .nav-ativo > a, ul.lang > li.lang-ativo, .lang-ativo > a {
+    background-color: white;
+    color: #283C6C;
+}
+
+/* language input */
+section.lang {    
+    padding: 0% 20%;
+}
+
+ul.lang {
+    width: 10%;
+    justify-content: space-between;
+    padding: 3% 0% 2% 0%;
+}
+
+ul.lang > li {
+    width: 50%;
+    text-align: center;
+    padding: 5%;
+    background-color:#283C6C;
+    margin-right: 5%;
+    border-radius: 1%;
+    border: 1px solid white;
+}
+
+ul.lang > li > a {
+    color:white
+    font-size: 12px;
+}
+
+ul.lang > li:hover, ul.lang > li > a:hover {
+    color: white;
+    background-color: #283C6C;
+}
+
+/* dividing div */
+.bio-info-1 {
+    padding: 0% 20%;
+    max-height: 50vh;
+}
+
+/* bio-info-1 > bio-left */
+.photo > img {
+    max-width: 100%;
+}
+
+.photo {
+    height: 100%;
+}
+
+/* bio-info-1 > bio-right */
+.bio-info {
+    padding: 0 20%;
+}
+
+.bio-left {
+    width: 30%;
+}
+
+.bio-right {
+    width: 70%;
+    padding-left: 5%;
+}
+
+.first-skills > li {
+    margin-top: 2.5%;
+}
+
+.first-skills, .second-skills, .project-skills {
+    justify-content: start;
+    padding-top: 1%;
+    font-size: 12px;
+    flex-wrap: wrap;
+}
+
+.first-skills > li, .second-skills > li, .project-skills > li {
+    background-color: black;
+    margin-right: 2%;
+    padding: 1%;
+    border-radius: 3%;
+}
+
+/* bio-info > social */
+.social {
+    width: 20%;
+    justify-content: space-between;
+}
+
+.social > a {
+    font-size: 25px;
+}
+
+.social > a > i:hover {
+    color: black;
+}
+
+/* experience */
+
+
+/* qualification */
+#qualification {
+    margin-top: 2%;
+}
+
+ul.qua-ul > li, ul.exp-ul > li {
+    font-size: 16px;
+}
+
+/* traveler */
+.insta-box {
+    padding-bottom: 5%;
+    width: 100%;
+}
+
+.photos {
+    max-width: 100%;
+    padding-top: 3%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.insta {
+    text-align: center;
+}
+
+.insta > img {
+    max-width: 200px;
+    padding-right: 3%;
+    border-radius: 1%;
+}
+
+img:hover {
+    opacity: 0.7;
+}
+
+footer {
+    padding: 1.5% 20%;
+    text-align: center;
+}
+
+/* 
+
+PROJETOS
+
+*/
+
+.post-box {
+    padding-top: 2%;
+}
+
+.left-post {
+    padding-right: 2%;
+}
+
+.left-post > a > h2 {
+    font-size: 30px;
+    padding-bottom: 1%;
+}
+
+.left-post > a > h3 {
+    font-style: italic;
+    font-size: 17px;
+    font-weight: 100;
+    padding-bottom: 1%;
+}
+
+.left-post > a > h4 {
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.right-post > img {
+    max-width: 200px;
+}
+
+.left-post > a {
+    font-size: 25px;
+}
+
+.project-skills {
+    padding-bottom: 1%;
+}
+
+/* 
+
+MOBILE 
+
+*/
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 17px;
+    }
+    p, ul.qua-ul > li, ul.exp-ul > li {
+        font-size: 15px;
+    }
+    ul.nav {
+        padding: 2% 2% 0% 2%;
+    }
+    ul.nav > li {
+        font-size: 16px;
+        width: 33%;
+        margin-right: 1%;
+        border: 1px solid white;
+    }
+    ul.lang {
+        width: 100%;
+        justify-content: center;
+    }
+    ul.lang > li {
+        padding: 1%;
+        width: 15%;
+    }
+    ul.lang > li > a {
+        font-size: 12px;
+    }
+    section.lang, .bio-info-1, .bio-left, .bio-right {
+        padding: 0% 5%;
+    }
+    .bio-info {
+        padding: 0% 10%;
+    }
+    .bio-info-1 {
+        flex-direction: column;
+        max-height: 100vh;
+        margin-bottom: 2%;
+    }
+    .bio-left, .bio-right {
+        width: 100%;
+    }
+    .photo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 5%;
+    }
+    .photo > img {
+        width: 60%;
+    }
+    .second-skills > li {
+        margin: 2% 2% 2% 0%;
+    }
+    .social {
+        width: 100%;
+        justify-content: space-around;
+        margin-bottom: 2%;
+    }
+    .social > a {
+        font-size: 17px;
+    }
+    .photo.insta {
+        align-items: center;
+    }
+/* projetos */
+    .right-post {
+        display: none;
+    }
+
+}
