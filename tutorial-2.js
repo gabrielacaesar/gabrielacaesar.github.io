@@ -50,7 +50,9 @@ function mostrar_tutorial(tutorial_lista){
         const skills_7 = item[9]
         const post_link = item[10]
         const github_link = item[11]
-        const img_file = item[12]
+        const youtube_link = item[12]
+        const medium_link = item[13]
+        const img_file = item[14]
 
         post_content +=
         `
@@ -122,6 +124,22 @@ function mostrar_tutorial(tutorial_lista){
         `
         <a href="${github_link}" target="_blank">
             <i class="fab fa-github" alt="icon for GitHub" aria-hidden="true"></i>
+        </a>
+        `
+        }
+        if (youtube_link != '-'){
+            post_content +=
+        `
+        <a href="${youtube_link}" target="_blank">
+            <i class="fab fa-youtube" alt="icon for YouTube" aria-hidden="true"></i>
+        </a>
+        `
+        }
+        if (medium_link != '-'){
+            post_content +=
+        `
+        <a href="${medium_link}" target="_blank">
+            <i class="fab fa-medium" alt="icon for Medium" aria-hidden="true"></i>
         </a>
         `
         }
