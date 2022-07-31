@@ -118,7 +118,7 @@ ul.lang > li:hover, ul.lang > li > a:hover {
 
 /* bio-info-1 > bio-right */
 .bio-info {
-    padding: 0 20%;
+    padding: 10px 20%;
 }
 
 .bio-left {
@@ -289,7 +289,7 @@ MOBILE
         padding: 0% 5%;
     }
     .bio-info {
-        padding: 0% 10%;
+        padding: 10px 10%;
     }
     .bio-info-1 {
         flex-direction: column;
