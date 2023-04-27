@@ -109,7 +109,7 @@ ul.lang > li:hover, ul.lang > li > a:hover {
 
 /* bio-info-1 > bio-left */
 .photo > img {
-    max-width: 100%;
+    max-width: 80%;
 }
 
 .photo {
