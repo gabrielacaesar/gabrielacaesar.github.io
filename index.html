@@ -77,7 +77,7 @@
       ],
       "alumniOf": { "@type": "Organization", "name": "g1" },
       "worksFor": { "@type": "Organization", "name": "Google", "department": "Google Trends" },
-      "sameAs": ["https://github.com/gabrielacaesar"]
+      "sameAs": ["https://br.linkedin.com/in/gabrielacaesar/pt", "https://github.com/gabrielacaesar"]
     },
     {
       "@type": "WebSite",
@@ -148,6 +148,25 @@
   .lang button:hover{color:var(--ink)}
   .lang button[aria-pressed="true"]{color:var(--ink);font-weight:500}
   .lang .sep{color:var(--rule);font-size:9px;user-select:none}
+  .mail-group{display:inline-flex;align-items:stretch}
+  .mail-group .btn-solid{border-radius:2px 0 0 2px}
+  .copy{
+    display:inline-flex;align-items:center;justify-content:center;position:relative;
+    width:36px;border:1px solid var(--accent);border-left:0;border-radius:0 2px 2px 0;
+    background:var(--accent);color:#fff;cursor:pointer;transition:background .18s;
+  }
+  .copy::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:rgba(255,255,255,.28)}
+  .copy:hover{background:#123529}
+  .copy svg{width:14px;height:14px}
+  .copy.done{background:#123529}
+  .copied{
+    position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);
+    font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--accent);background:var(--paper);
+    border:1px solid var(--rule);border-radius:2px;padding:3px 6px;white-space:nowrap;
+    opacity:0;pointer-events:none;transition:opacity .18s;
+  }
+  .copied.show{opacity:1}
   .btn{
     display:inline-block;text-decoration:none;font-size:13px;font-weight:500;
     padding:9px 18px;border-radius:2px;transition:all .2s;
@@ -406,8 +425,8 @@
       <h2 data-i18n="h_cont">Vamos conversar</h2>
       <p class="body-copy" data-i18n="p_cont">Se você tem um desafio que precisa de resposta com dados por trás, ou dados que ainda não viraram produtos, me escreva.</p>
       <div class="contact-links">
-        <a href="mailto:gabriela.caesar.2024@gmail.com" class="btn btn-solid">gabriela.caesar.2024@gmail.com</a>
-        <a href="#" class="btn btn-ghost">LinkedIn</a>
+        <span class="mail-group"><a href="mailto:gabriela.caesar.2024@gmail.com" class="btn btn-solid">gabriela.caesar.2024@gmail.com</a><button type="button" class="copy" id="copyBtn" aria-label="Copiar e-mail" title="Copiar e-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="copied" id="copiedMsg" role="status" aria-live="polite"></span></button></span>
+        <a href="https://br.linkedin.com/in/gabrielacaesar/pt" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </div>
@@ -417,7 +436,7 @@
   <div class="wrap foot-in">
     <span>© 2026 Gabriela Caesar</span>
     <span>
-      <a href="#">LinkedIn</a>
+      <a href="https://br.linkedin.com/in/gabrielacaesar/pt" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:gabriela.caesar.2024@gmail.com">gabriela.caesar.2024@gmail.com</a>
     </span>
   </div>
@@ -519,6 +538,9 @@
           d:'Gabriela Caesar pasó 15 años traduciendo complejidad: datos en historias, tecnología en productos, tendencias en decisiones.'}
     };
     document.title = META[lang].t;
+    var CB = {pt:'Copiar e-mail', en:'Copy email', es:'Copiar correo'};
+    var cb = document.getElementById('copyBtn');
+    if (cb) { cb.setAttribute('aria-label', CB[lang]); cb.setAttribute('title', CB[lang]); }
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', META[lang].d);
     document.querySelectorAll('.lang button').forEach(function(b){
@@ -528,6 +550,34 @@
   }
   document.querySelectorAll('.lang button').forEach(function(b){
     b.addEventListener('click', function(){ apply(b.dataset.lang); });
+  });
+})();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('copyBtn');
+  if(!btn) return;
+  var msg = document.getElementById('copiedMsg');
+  var MAIL = 'gabriela.caesar.2024@gmail.com';
+  var TXT = { pt:'copiado', en:'copied', es:'copiado' };
+  function flash(){
+    var l = document.documentElement.lang;
+    l = (l && l.indexOf('en')===0) ? 'en' : (l && l.indexOf('es')===0) ? 'es' : 'pt';
+    msg.textContent = TXT[l];
+    msg.classList.add('show'); btn.classList.add('done');
+    setTimeout(function(){ msg.classList.remove('show'); btn.classList.remove('done'); }, 1600);
+  }
+  btn.addEventListener('click', function(){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(MAIL).then(flash, fallback);
+    } else { fallback(); }
+    function fallback(){
+      var t = document.createElement('textarea');
+      t.value = MAIL; t.style.position='fixed'; t.style.opacity='0';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); flash(); } catch(e){}
+      document.body.removeChild(t);
+    }
   });
 })();
 </script>
