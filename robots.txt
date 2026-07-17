@@ -23,4 +23,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://gabrielacaesar.com/sitemap.xml
+Sitemap: https://gabrielacaesar.github.io/sitemap.xml
